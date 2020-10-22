@@ -1,0 +1,151 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  font-family: lorimer-no-2, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  grid-column: 3; 
+  margin-top: -7vh;
+  text-align: right;
+}
+
+#title {
+  font-size: 18px;
+  color: rgb(248, 253, 0);
+}
+
+#author {
+  font-size: 12px;
+  color: rgb(255, 180, 217);
+  font-weight: 300;
+}
+
+#page-wrapper {
+  grid-template-columns: 1fr 1fr 4fr;
+  display: grid;
+  padding: 10vh 2vw 2vh 2vw;
+  max-height: 88vh;
+  max-width: 100vw;
+  grid-template-rows: auto;
+}
+
+#button-wrapper {
+  grid-column: 1 / span 1;
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: repeat(5, 3vw);
+  grid-gap: .5vw;
+  max-height: 88vh;
+}
+
+button {
+  background-color: rgb(255, 180, 217);
+  border: none;
+  width: 100%;
+  color: white;
+  font-family: platelet, sans-serif;
+  font-weight: 700;
+  padding: 7px 0px 7px 0px;
+  font-size: 15px;
+}
+
+.wideBtn {
+  grid-column: span 5;
+}
+
+button:active {
+  border: none;
+  outline: none;
+}
+
+button:visited {
+  border: none;
+  outline: none;
+}
+
+button:focus {
+  background-color: rgb(255, 0, 100);
+  border: none;
+  outline: none;
+}
+
+#modal {
+  grid-column: 2;
+  grid-row: 2;
+  font-family: platelet, sans-serif;
+  align-self: flex-end;
+  margin-left: 1vw;
+  color: rgb(255, 0, 100);
+  background-color: white;
+  font-size: 15px;
+}
+
+#canvas-wrapper {
+  grid-column: 3;
+  grid-row: 2;
+  max-width: 100%;
+  max-height: 80vh;
+}
+
+canvas {
+  max-width: 100%;
+  max-height: 82vh;
+  max-width: 82vh;
+}
+
+@media only
+  screen and (max-device-width: 800px),
+  screen and (max-width: 600px)
+  {
+
+    #page-wrapper {
+      grid-template-columns: 3fr 1fr;
+      grid-template-rows: 3fr 2fr;
+      padding: 3vh 2vw 2vh 2vw;
+      row-gap: 1vh;
+      max-height: 97vh;
+      height: 94vh;
+    }
+
+    #button-wrapper {
+      grid-row: 2;
+      grid-column: 1 / span 1;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      grid-gap: .5vw;
+    }
+
+    #canvas-wrapper {
+      grid-row: 1;
+      grid-column: 1 / span 2;
+    }
+
+    canvas {
+      max-width: 100%;
+    }
+
+    .title {
+      margin-top: 0;
+      grid-column: 2;
+      grid-row: 2;
+    }
+
+    #modal {
+      text-align: right;
+      justify-self: flex-end;
+    }
+    
+  
+    button {
+      font-size: 30px;
+      padding: 0px 0px 5px 0px;
+    }
+
+    #modal {
+      font-size: 30px;
+    }
+    
+}

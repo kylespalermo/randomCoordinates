@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="sketch.js"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/lbu6knk.css">
+</head>
+
+<body onload="createButtons(); createRandBtn()">
+    <div id="page-wrapper">
+        <div class="title">
+            <span id="title">a thousand random coordinates</span><br>
+            <span id="author">Kyle Palermo, 2020</span>
+        </div>
+        <div id="button-wrapper"></div>
+        <div id="canvas-wrapper">
+            <main></main>
+        </div>
+    </div>
+    <script>
+
+        let btnValue;
+        var modalOn = false;
+
+        function createButtons() {
+            for (let i = 0; i < 100; i++) {
+                var btn = document.createElement("button");
+                btn.innerHTML = [i];
+                btn.onclick = function () { logBtnValue(this.value); }
+                document.getElementById("button-wrapper").appendChild(btn).setAttribute("value", [i]);
+            }
+        }
+
+        function createRandBtn() {
+            var randBtn = document.createElement("button");
+            randBtn.innerHTML = "new";
+            randBtn.setAttribute("class", "wideBtn")
+            randBtn.onclick = function () { logBtnValue(this.value); }
+            document.getElementById("button-wrapper").appendChild(randBtn).setAttribute("value", 100);
+        }
+
+        function logBtnValue(clicked_value) {
+            btnValue = int(clicked_value);
+            btnValueHold = int(clicked_value);
+            if (modalOn == true) {
+                closeModal();
+            }
+        }
+
+        function newRandModal() {
+            let newModal = document.createElement("div");
+            let modalParent = document.getElementById("page-wrapper");
+
+            let newWindowCell = [];
+
+            for (let i = 0; i < randomArray.length; i++) {
+                newWindowCell[i] = randomArray[i].xPosRand + " / " + randomArray[i].yPosRand;
+            }
+
+            var newWindowContent =
+            `
+            <table>
+                <tr><td>${newWindowCell[0]}</td></tr>
+                <tr><td>${newWindowCell[1]}</td></tr>
+                <tr><td>${newWindowCell[2]}</td></tr>
+                <tr><td>${newWindowCell[3]}</td></tr>
+                <tr><td>${newWindowCell[4]}</td></tr>
+                <tr><td>${newWindowCell[5]}</td></tr>
+                <tr><td>${newWindowCell[6]}</td></tr>
+                <tr><td>${newWindowCell[7]}</td></tr>
+                <tr><td>${newWindowCell[8]}</td></tr>
+                <tr><td>${newWindowCell[9]}</td></tr>            
+                </tr>
+            </table>
+            `;
+
+            newModal.innerHTML = newWindowContent;
+            newModal.setAttribute("id", "modal");
+            modalParent.appendChild(newModal);
+            modalOn = true;
+
+        }
+
+        var wrapperWide;
+
+        function getWrapperWidth() {
+            wrapperWide = document.getElementById("canvas-wrapper").offsetWidth;
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("modal");
+            modal.remove();
+            modalOn = false;
+        }
+
+    </script>
+</body>
+
+</html>
